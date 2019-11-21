@@ -4,9 +4,7 @@
 namespace {
 
 
-TEST(addTest, int_out_off_place) {
-    // This test is named "Negative", and belongs to the "FactorialTest"
-    // test case.
+TEST(vectorTest, new_array) {
     const int size = 10;
     int *x = new int[size];
     int *y = new int[size];
@@ -16,7 +14,10 @@ TEST(addTest, int_out_off_place) {
         y[i] = i;
     }
 
-    int *z = vector_math::add<int>(x, y, size);
+    int *z = new int[size];
+    int *returned_z = vector_math::add<int>(x, y, size, z);
+    
+    EXPECT_EQ(z, returned_z);
     for(int i = 0; i < size; ++i){
         EXPECT_EQ(size, z[i]);
     }
@@ -26,9 +27,7 @@ TEST(addTest, int_out_off_place) {
     delete[] z;
 }
 
-TEST(addTest, int_out_in_place) {
-    // This test is named "Negative", and belongs to the "FactorialTest"
-    // test case.
+TEST(vectorTest, inplace) {
     const int size = 10;
     int *x = new int[size];
     int *y = new int[size];
@@ -38,7 +37,7 @@ TEST(addTest, int_out_in_place) {
         y[i] = i;
     }
 
-    int *out = vector_math::add<int>(x, y, size, true);
+    int *out = vector_math::add<int>(x, y, size, out);
     // assert same array has been returned 
     EXPECT_EQ(x, out);
     for(int i = 0; i < size; ++i){

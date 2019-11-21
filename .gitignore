@@ -47,3 +47,4 @@ CMakeCache.txt
 MakeFile
 bin/
 lib/
+Testing/*

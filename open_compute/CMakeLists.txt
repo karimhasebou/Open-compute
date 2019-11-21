@@ -5,7 +5,9 @@
 # Optionally glob, but only for CMake 3.12 or later:
 set(HEADER_LIST "${OpenCompute_SOURCE_DIR}/open_compute/vector_math.h")
 # Make an automatic library - will be static or dynamic based on user setting
-add_library(open_compute SHARED vector_math.cpp ${HEADER_LIST})
+set(SOURCE_FILES vector_math.h tensor_iterator.hpp tensor_accessor.hpp
+                matrix_math.hpp shape.hpp range.hpp types.h tensor.hpp)
+add_library(open_compute SHARED vector_math.cpp ${SOURCE_FILES})
 
 # We need this directory, and users of our library will need it too
 # target_include_directories(open_compute PUBLIC ../include)

@@ -32,18 +32,20 @@ struct Storage{
 class Tensor
 {
 private:
-    Storage *storage;
+    //Storage *storage;
+    std::shared_ptr<Storage> storage;
     TensorAccessor accessor;
 public:
     Tensor(Shape shape, open_compute::DataType dt, 
         open_compute::Device device = open_compute::Device::CPU)
     {
-        storage = new Storage(shape.volume(), dt, device);
+        //storage = new Storage(shape.volume(), dt, device);
+        storage = std::make_shared<Storage>(shape.volume(), dt, device);
         accessor = TensorAccessor(shape, shape);
     }
 
     ~Tensor(){
-        delete storage;
+        //delete storage;
     }
     
     Tensor reshape(Shape new_shape);
@@ -54,12 +56,12 @@ public:
         return storage->data;
     }
 
-    char* operator[](int idx){
+    char* operator[](const int& idx){
         return storage->data + 
             idx * open_compute::type_size(storage->data_type);
     }
 
-    char* operator[](vector<int>& shape){
+    char* operator[](const vector<int>& shape){
         return storage->data + 
             accessor[shape] * open_compute::type_size(storage->data_type);
     }

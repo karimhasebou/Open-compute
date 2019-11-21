@@ -17,8 +17,7 @@ namespace vector_math
 template<class Type>
 Type* add(Type* a, Type* b, size_t len, Type* out = nullptr)
 {
-    if(out != nullptr) out = a;
-    else out = new Type[len];
+    if(out == nullptr) out = a;
     for(size_t i = 0; i < len; ++i)
         out[i] = a[i] + b[i];
     return out;
@@ -27,8 +26,7 @@ Type* add(Type* a, Type* b, size_t len, Type* out = nullptr)
 template<class Type>
 Type* multiply(Type* a, Type* b, size_t len, Type* out = nullptr)
 {
-    if(out != nullptr) out = a;
-    else out = new Type[len];
+    if(out == nullptr) out = a;
     for(size_t i = 0; i < len; ++i)
         out[i] = a[i] * b[i];
     return out;
@@ -37,8 +35,7 @@ Type* multiply(Type* a, Type* b, size_t len, Type* out = nullptr)
 template<class Type>
 Type* subtract(Type* a, Type* b, size_t len, Type* out = nullptr)
 {
-    if(out != nullptr) out = a;
-    else out = new Type[len];
+    if(out == nullptr) out = a;
     for(size_t i = 0; i < len; ++i)
         out[i] = a[i] - b[i];
     return out;
@@ -47,8 +44,7 @@ Type* subtract(Type* a, Type* b, size_t len, Type* out = nullptr)
 template<class Type>
 Type* divide(Type* a, Type* b, size_t len, Type* out = nullptr)
 {
-    if(out != nullptr) out = a;
-    else out = new Type[len];
+    if(out == nullptr) out = a;
     for(size_t i = 0; i < len; ++i)
         out[i] = a[i] / b[i];
     return out;
@@ -66,7 +62,7 @@ Type dot_product(Type* a, Type* b, size_t len)
 template<class Type>
 Type* transpose(Type* a, int rows, int cols, Type* out = nullptr){
     
-    if(out != nullptr){
+    if(out == nullptr){
         Type *tmp = out = a;
         for(int c = 0; c <= cols / 2; c++)
             for(int r = 0; r < rows; r++, ++tmp)
