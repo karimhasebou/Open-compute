@@ -10,8 +10,18 @@ private:
     Shape view_dim;
     Shape stride;
 public:
+    TensorAccessor()
+    {
+        
+    }
     const Shape& get_view(){
         return view_dim;
+    }
+    
+    TensorAccessor(Shape tensor_dim, Shape view_dim) 
+    : tensor_dim(tensor_dim), view_dim(view_dim)
+    {
+        for(int i = 0; i < tensor_dim.size();++i) stride.push_back(1);
     }
 
     TensorAccessor(Shape tensor_dim, Shape view_dim, Shape stride) 

@@ -13,11 +13,11 @@
 
 namespace vector_math
 {
+
 template<class Type>
-Type* add(Type* a, Type* b, size_t len, bool in_place = false)
+Type* add(Type* a, Type* b, size_t len, Type* out = nullptr)
 {
-    Type *out;
-    if(in_place) out = a;
+    if(out != nullptr) out = a;
     else out = new Type[len];
     for(size_t i = 0; i < len; ++i)
         out[i] = a[i] + b[i];
@@ -25,10 +25,9 @@ Type* add(Type* a, Type* b, size_t len, bool in_place = false)
 }
 
 template<class Type>
-Type* multiply(Type* a, Type* b, size_t len, bool in_place = false)
+Type* multiply(Type* a, Type* b, size_t len, Type* out = nullptr)
 {
-    Type *out;
-    if(in_place) out = a;
+    if(out != nullptr) out = a;
     else out = new Type[len];
     for(size_t i = 0; i < len; ++i)
         out[i] = a[i] * b[i];
@@ -36,10 +35,9 @@ Type* multiply(Type* a, Type* b, size_t len, bool in_place = false)
 }
 
 template<class Type>
-Type* subtract(Type* a, Type* b, size_t len, bool in_place = false)
+Type* subtract(Type* a, Type* b, size_t len, Type* out = nullptr)
 {
-    Type *out;
-    if(in_place) out = a;
+    if(out != nullptr) out = a;
     else out = new Type[len];
     for(size_t i = 0; i < len; ++i)
         out[i] = a[i] - b[i];
@@ -47,10 +45,9 @@ Type* subtract(Type* a, Type* b, size_t len, bool in_place = false)
 }
 
 template<class Type>
-Type* divide(Type* a, Type* b, size_t len, bool in_place = false)
+Type* divide(Type* a, Type* b, size_t len, Type* out = nullptr)
 {
-    Type *out;
-    if(in_place) out = a;
+    if(out != nullptr) out = a;
     else out = new Type[len];
     for(size_t i = 0; i < len; ++i)
         out[i] = a[i] / b[i];
@@ -67,10 +64,9 @@ Type dot_product(Type* a, Type* b, size_t len)
 }
 
 template<class Type>
-Type* transpose(Type* a, int rows, int cols, bool in_place = false){
-    Type *out;
+Type* transpose(Type* a, int rows, int cols, Type* out = nullptr){
     
-    if(in_place){
+    if(out != nullptr){
         Type *tmp = out = a;
         for(int c = 0; c <= cols / 2; c++)
             for(int r = 0; r < rows; r++, ++tmp)
@@ -84,6 +80,7 @@ Type* transpose(Type* a, int rows, int cols, bool in_place = false){
     }
     return out;
 }
+
 };
 
 #endif /* vector_math_h */

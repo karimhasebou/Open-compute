@@ -34,6 +34,10 @@ public:
       access_to_increment = next.size() - 2;
     }
     
+    int num_elements_at_last_axis(){
+        return accessor.get_view().back();
+    }
+
     int next(){
         if(access_to_increment < 0) return -1;
         int idx = accessor[next];
