@@ -21,8 +21,8 @@ TEST(FloatMatrixAdd, new_array) {
 
     a = open_compute::multiply(a, b, true);
     for(int i = 0; i < vol; ++i){
-        cout << *((float*)a[i]) << endl;
-        //EXPECT_EQ(*((float*)a[i]), 1.f * i * i * i);
+        //cout << *((float*)a[i]) << endl;
+        EXPECT_EQ(*((float*)a[i]),  float(i) * i);
     } 
 }
 

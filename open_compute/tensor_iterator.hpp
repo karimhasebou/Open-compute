@@ -42,12 +42,12 @@ public:
         if(access_to_increment < 0) return -1;
         int idx = accessor[cur_idx];
 
-        cur_idx[access_to_increment] = (cur_idx[access_to_increment] + 1) 
-            % accessor.get_view()[access_to_increment];
-
-        if(cur_idx[access_to_increment] == 0){
-            --access_to_increment;
+        while(access_to_increment >= 0 && 
+            (cur_idx[access_to_increment] = (cur_idx[access_to_increment] + 1) 
+            % accessor.get_view()[access_to_increment]) == 0){
+             --access_to_increment;
         }
+        if(access_to_increment >= 0) access_to_increment = cur_idx.size()-2;
 
         return idx;
     }
