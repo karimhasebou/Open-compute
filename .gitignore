@@ -1,3 +1,6 @@
+# vs code project files
+*.json
+
 # Prerequisites
 *.d
 

@@ -1,9 +1,9 @@
 //
-//  Tensor.cpp
+//  shape.cpp
 //  open_compute
 //
-//  Created by Karim Hasebou on 11/18/19.
+//  Created by Karim Hasebou on 11/19/19.
 //  Copyright © 2019 karim hasebou. All rights reserved.
 //
 
-#include "tensor.hpp"
+#include "shape.hpp"
