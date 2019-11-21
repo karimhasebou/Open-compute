@@ -1,9 +1,9 @@
 #include "gtest/gtest.h"
 #include "vector_math.h"
-#include "matrix_math.hpp"
-#include "tensor.hpp"
-#include "tensor_accessor.hpp"
-#include "tensor_iterator.hpp"
+#include "matrix_math.h"
+#include "tensor.h"
+#include "tensor_accessor.h"
+#include "tensor_iterator.h"
 namespace {
 
 

@@ -1,5 +1,5 @@
 //
-//  Tensor.hpp
+//  Tensor.h
 //  open_compute
 //
 //  Created by Karim Hasebou on 11/18/19.
@@ -10,9 +10,9 @@
 #define Tensor_hpp
 
 #include "types.h"
-#include "shape.hpp"
-#include "tensor_accessor.hpp"
-#include "tensor_iterator.hpp"
+#include "shape.h"
+#include "tensor_accessor.h"
+#include "tensor_iterator.h"
 
 struct Storage{
     char *data;

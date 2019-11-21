@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "vector_math.h"
-#include "matrix_math.hpp"
-#include "tensor.hpp"
+#include "matrix_math.h"
+#include "tensor.h"
 
 namespace {
 

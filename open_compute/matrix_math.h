@@ -1,7 +1,7 @@
 #ifndef __MATRIX_MATH
 #define __MATRIX_MATH
 
-#include "tensor.hpp"
+#include "tensor.h"
 #include "vector_math.h"
 
 namespace open_compute

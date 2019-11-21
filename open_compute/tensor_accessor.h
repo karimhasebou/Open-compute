@@ -1,7 +1,7 @@
 #ifndef __TENSOR_ACCESSOR
 #define __TENSOR_ACCESSOR
 
-#include "shape.hpp"
+#include "shape.h"
 
 class TensorAccessor
 {

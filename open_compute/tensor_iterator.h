@@ -1,5 +1,5 @@
 //
-//  TensorIterator.hpp
+//  TensorIterator.h
 //  open_compute
 //
 //  Created by Karim Hasebou on 11/18/19.
@@ -14,10 +14,10 @@
 #include <numeric>
 using namespace std;
 
-#include "range.hpp"
-#include "shape.hpp"
+#include "range.h"
+#include "shape.h"
 
-#include "tensor_accessor.hpp"
+#include "tensor_accessor.h"
 
 namespace open_compute
 {
