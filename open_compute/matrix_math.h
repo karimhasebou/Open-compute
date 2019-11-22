@@ -7,6 +7,7 @@
 namespace open_compute
 {
 
+
 /*[[[cog
 binary_op_func_impl = """
 template<class type>
@@ -206,7 +207,6 @@ Tensor divide(Tensor& a, Tensor& b, bool in_place = false)
 }
 
 //[[[end]]]
-
 
 
 
