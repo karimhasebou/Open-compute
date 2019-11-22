@@ -47,6 +47,11 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 include_directories ( ${OpenCompute_SOURCE_DIR}/open_compute/ )
 include_directories ( ${OpenComputeTests_SOURCE_DIR}/tests/ )
 
+SET(GCC_COVERAGE_COMPILE_FLAGS "-g -fsanitize=address -fno-omit-frame-pointer")
+SET(GCC_COVERAGE_LINK_FLAGS    "-g -fsanitize=address")
+
+SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
+SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}")
 
 enable_testing()
 add_subdirectory(open_compute)

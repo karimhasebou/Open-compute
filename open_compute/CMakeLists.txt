@@ -18,5 +18,6 @@ add_library(open_compute SHARED vector_math.cpp ${SOURCE_FILES})
 target_compile_features(open_compute PUBLIC cxx_std_11)
 
 
+
 # IDEs should put the headers in a nice place
 #source_group(TREE "${PROJECT_SOURCE_DIR}/include" PREFIX "Header Files" FILES ${HEADER_LIST})

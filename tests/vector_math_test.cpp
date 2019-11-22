@@ -37,7 +37,7 @@ TEST(vectorTest, inplace) {
         y[i] = i;
     }
 
-    int *out = vector_math::add<int>(x, y, size, out);
+    int *out = vector_math::add<int>(x, y, size);
     // assert same array has been returned 
     EXPECT_EQ(x, out);
     for(int i = 0; i < size; ++i){
