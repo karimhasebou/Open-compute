@@ -4,7 +4,7 @@
 namespace {
 
 
-TEST(vectorTest, new_array) {
+TEST(vectorTest, add_new_array) {
     const int size = 10;
     int *x = new int[size];
     int *y = new int[size];
@@ -27,7 +27,7 @@ TEST(vectorTest, new_array) {
     delete[] z;
 }
 
-TEST(vectorTest, inplace) {
+TEST(vectorTest, add_inplace) {
     const int size = 10;
     int *x = new int[size];
     int *y = new int[size];

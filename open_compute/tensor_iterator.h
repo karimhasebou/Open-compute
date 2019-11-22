@@ -12,9 +12,6 @@
 #include <stdio.h>
 #include <vector>
 #include <numeric>
-using namespace std;
-
-#include "range.h"
 #include "shape.h"
 
 #include "tensor_accessor.h"
@@ -26,11 +23,12 @@ class AxisIterator
 {
 private:
     TensorAccessor accessor;
-    vector<int> cur_idx;
+    std::vector<int> cur_idx;
     int access_to_increment;
 public:
     AxisIterator(TensorAccessor& accessor) 
-    : accessor(accessor) , cur_idx(vector<int>(accessor.get_view().size(),0)){
+    : accessor(accessor) , 
+        cur_idx(std::vector<int>(accessor.get_view().size(),0)){
       access_to_increment = cur_idx.size() - 2;
     }
     

@@ -10,13 +10,12 @@
 #define shape_hpp
 
 #include <vector>
-using namespace std;
 
-class Shape : public vector<int>
+class Shape : public std::vector<int>
 {
 public:
-    Shape() : vector<int>(){};
-    Shape(const vector<int> x) : vector<int>(x){};
+    Shape() : std::vector<int>(){};
+    Shape(const std::vector<int> x) : std::vector<int>(x){};
     int volume(){
         int vol = 1;
         for(auto x : *this) vol *= x;

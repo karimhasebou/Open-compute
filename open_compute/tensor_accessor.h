@@ -14,11 +14,15 @@ public:
     {
         
     }
+    const Shape& get_tensor_dim(){
+        return view_dim;
+    }
+
     const Shape& get_view(){
         return view_dim;
     }
     
-    TensorAccessor(Shape tensor_dim, Shape view_dim) 
+    TensorAccessor(Shape tensor_dim, Shape view_dim, int base_offset = 0) 
     : tensor_dim(tensor_dim), view_dim(view_dim)
     {
         for(int i = 0; i < tensor_dim.size();++i) stride.push_back(1);
@@ -29,11 +33,11 @@ public:
     {
     } 
 
-    int operator[](const vector<int>& idx){
+    int operator[](const std::vector<int>& idx){
         return get_index(idx);
     }
 
-    int get_index(const vector<int>& idx){
+    int get_index(const std::vector<int>& idx){
         int offset = 0;
         int multiplier = 1;
         for(int i = view_dim.size() - 1; i >= 0; i--){
