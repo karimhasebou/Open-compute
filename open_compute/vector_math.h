@@ -10,9 +10,65 @@
 #define vector_math_h
 
 #include <cstddef>
-
+#include <cmath>
 namespace vector_math
 {
+
+template<class Type>
+Type* exp(Type* a, size_t len, Type* out = nullptr)
+{
+    if(out == nullptr) out = a;
+    for(size_t i = 0; i < len; ++i)
+        out[i] = std::exp(a[i]);
+    return out;
+}
+
+
+template<class Type>
+Type* logical_xor(Type* a, Type* b, size_t len, Type* out = nullptr)
+{
+    if(out == nullptr) out = a;
+    for(size_t i = 0; i < len; ++i)
+        out[i] = (a[i] ^ b[i]);
+    return out;
+}
+
+template<class Type>
+Type* logical_or(Type* a, Type* b, size_t len, Type* out = nullptr)
+{
+    if(out == nullptr) out = a;
+    for(size_t i = 0; i < len; ++i)
+        out[i] = (a[i] | b[i]);
+    return out;
+}
+
+template<class Type>
+Type* logical_and(Type* a, Type* b, size_t len, Type* out = nullptr)
+{
+    if(out == nullptr) out = a;
+    for(size_t i = 0; i < len; ++i)
+        out[i] = (a[i] & b[i]);
+    return out;
+}
+
+
+template<class Type>
+Type* max(Type* a, Type* b, size_t len, Type* out = nullptr)
+{
+    if(out == nullptr) out = a;
+    for(size_t i = 0; i < len; ++i)
+        out[i] = max(a[i],b[i]);
+    return out;
+}
+
+template<class Type>
+Type* min(Type* a, Type* b, size_t len, Type* out = nullptr)
+{
+    if(out == nullptr) out = a;
+    for(size_t i = 0; i < len; ++i)
+        out[i] = min(a[i],b[i]);
+    return out;
+}
 
 template<class Type>
 Type* add(Type* a, Type* b, size_t len, Type* out = nullptr)
