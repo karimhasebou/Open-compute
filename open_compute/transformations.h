@@ -31,7 +31,7 @@ type* im2col(type* mat,
         type* matPtr = get_loc(arr, d, 
         y * window_stride[1] - padding[2],
         x * window_stride[0] - padding[0]);
-        for(int ky = 0; ky < window_dims[1]; ++ky){
+        for(int ky = 0; ky < window_dims[1]; ++ky, matPtr += arr_dims[0] * arr_stride[1]){
             if(ky + y * stride <  paddingTop
                 || ky + y * stride - paddingTop >= arr_view[1]){ // if y is out of range, we are
                 std::fill(outIt, outIt + window_dims[0], type(0));
@@ -40,15 +40,19 @@ type* im2col(type* mat,
                 int matPtrBegin = x * window_stride[0] - padding[0];
                 int i = 0;
                 while(matPtrBegin < 0 && i < window_dims[0]){
-                    *++ = type(0);
+                    *outIt++ = type(0);
                     ++matPtrBegin;
                     ++i;
                 }
 
-                while(i < kernelSize && srcABegin < inShape.w){
+                while(i < window_stride[] && matPtrBegin < window_stride[0]){
                     *outIt++ = matPtr[i];
                     ++i;
                     ++matPtrBegin;
+                }
+
+                while(i++ < window_stride[0]){
+                    *outIt++ = type(0);
                 }
             }
         }
